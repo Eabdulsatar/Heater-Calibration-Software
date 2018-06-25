@@ -1,0 +1,9 @@
+c:\users\abdues\documents\visual studio 2013\Projects\Heater_NTC_Calibrator\Heater_NTC_Calibrator\bin\Debug\Heater_NTC_Calibrator.exe.config
+c:\users\abdues\documents\visual studio 2013\Projects\Heater_NTC_Calibrator\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.Properties.Resources.resources
+c:\users\abdues\documents\visual studio 2013\Projects\Heater_NTC_Calibrator\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.csproj.GenerateResource.Cache
+c:\users\abdues\documents\visual studio 2013\Projects\Heater_NTC_Calibrator\Heater_NTC_Calibrator\bin\Debug\Heater_NTC_Calibrator.exe
+c:\users\abdues\documents\visual studio 2013\Projects\Heater_NTC_Calibrator\Heater_NTC_Calibrator\bin\Debug\Heater_NTC_Calibrator.pdb
+c:\users\abdues\documents\visual studio 2013\Projects\Heater_NTC_Calibrator\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.exe
+c:\users\abdues\documents\visual studio 2013\Projects\Heater_NTC_Calibrator\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.pdb
+c:\users\abdues\documents\visual studio 2013\Projects\Heater_NTC_Calibrator\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.Heater_Calibrator.resources
+C:\Users\Abdues\Documents\Visual Studio 2013\Projects\Heater_NTC_Calibrator\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.Settings_Form.resources
