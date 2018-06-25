@@ -1,4 +1,4 @@
-﻿
+﻿//Copy Rights Epocal 2018
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
