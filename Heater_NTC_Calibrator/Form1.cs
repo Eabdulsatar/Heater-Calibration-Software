@@ -407,7 +407,7 @@ namespace Heater_NTC_Calibrator
 
                       //_______________________________________detects if offset is stablised__________________________
                       double[] temps = { Data[0].Average(), Data[1].Average(), Data[2].Average(), Data[3].Average() };
-                      Offset_Status[k + 4] = ((Math.Abs(Offset[k + 4].Max() - Offset[k + 4].Min())) <= THRESH_HOLD_Stable) && ref_therm_ok && (Offset[k + 4].Average()<3.5) && (Offset[k + 4].Average() > -3.5);
+                      Offset_Status[k + 4] = ((Math.Abs(Offset[k + 4].Max() - Offset[k + 4].Min())) <= THRESH_HOLD_Stable) && ref_therm_ok;
 
 
 
@@ -538,12 +538,12 @@ namespace Heater_NTC_Calibrator
             {
                 HTR_RESUTLS.Rows[row].Cells[1].Value = (Status[row + 4] ? Math.Round(Offset[row + 4].Average(), 2).ToString("0.00") + " C" : "N/A");
                 HTR_RESUTLS.Rows[row].Cells[2].Value = (Status[row + 4] ? Math.Round(Data[row + 4].Average(), 2).ToString("0.00") + " C" : "N/A");
-                HTR_RESUTLS.Rows[row].Cells[1].Style.ForeColor = Offset_Status[row + 4] ? Color.Green : Color.Red;
-                HTR_RESUTLS.Rows[row].Cells[2].Style.ForeColor = Offset_Status[row + 4] ? Color.Green : Color.Red;
+                HTR_RESUTLS.Rows[row].Cells[1].Style.ForeColor = (Offset_Status[row + 4] && (Offset[row + 4].Average() < 3.5) && (Offset[row + 4].Average() > -3.5)) ? Color.Green : Color.Red;
+                HTR_RESUTLS.Rows[row].Cells[2].Style.ForeColor = (Offset_Status[row + 4] && (Offset[row + 4].Average() < 3.5) && (Offset[row + 4].Average() > -3.5)) ? Color.Green : Color.Red;
 
                 if ((Cal_Sucess && worker_counter > MINMUM_COUNTS) || TimeOut)
                 {
-                    if (Status[row + 4] && !Offset_Status[row + 4])
+                    if (Status[row + 4] && (!Offset_Status[row + 4]|| (Offset[row + 4].Average() >= 3.5) || (Offset[row + 4].Average() <= -3.5)))
                     {
                         HTR_RESUTLS.Rows[row].Cells[1].Value = HTR_RESUTLS.Rows[row].Cells[1].Value + " Fail!";
                         HTR_RESUTLS.Rows[row].Cells[2].Value = HTR_RESUTLS.Rows[row].Cells[2].Value + " Fail!";
