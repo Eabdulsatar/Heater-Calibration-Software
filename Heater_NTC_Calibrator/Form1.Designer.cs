@@ -230,7 +230,7 @@
             // 
             this.HTR1_Radio.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.HTR1_Radio.AutoSize = true;
-            this.HTR1_Radio.Location = new System.Drawing.Point(133, 149);
+            this.HTR1_Radio.Location = new System.Drawing.Point(133, 148);
             this.HTR1_Radio.Name = "HTR1_Radio";
             this.HTR1_Radio.Size = new System.Drawing.Size(14, 13);
             this.HTR1_Radio.TabIndex = 71;
@@ -533,7 +533,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(643, 635);
-            this.Controls.Add(this.HTR1_Radio);
             this.Controls.Add(this.HTR16_Radio);
             this.Controls.Add(this.HTR15_Radio);
             this.Controls.Add(this.HTR14_Radio);
@@ -558,9 +557,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Print_PB);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.HTR_RESUTLS);
             this.Controls.Add(this.Calibration_PB);
             this.Controls.Add(this.Connect2);
+            this.Controls.Add(this.HTR1_Radio);
+            this.Controls.Add(this.HTR_RESUTLS);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Heater_Calibrator";
             this.Text = "Heater Calibrator";

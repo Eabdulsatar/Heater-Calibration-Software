@@ -539,8 +539,8 @@ namespace Heater_NTC_Calibrator
 
             for (row = 0; row < 16; row++)
             {
-                HTR_RESUTLS.Rows[row].Cells[1].Value = (Status[row + 4] ? Math.Round(Offset[row + 4].Average(), 2).ToString("0.00") + " C" : "N/A");
-                HTR_RESUTLS.Rows[row].Cells[2].Value = (Status[row + 4] ? Math.Round(Data[row + 4].Average(), 2).ToString("0.00") + " C" : "N/A");
+                HTR_RESUTLS.Rows[row].Cells[1].Value = (Status[row + 4] ? Math.Round(Offset[row + 4].Average(), 2).ToString("+0.00;-0.00;0") + " C" : "N/A");
+                HTR_RESUTLS.Rows[row].Cells[2].Value = (Status[row + 4] ? Math.Round(Data[row + 4].Average(), 2).ToString("+0.00;-0.00;0") + " C" : "N/A");
                 HTR_RESUTLS.Rows[row].Cells[1].Style.ForeColor = (Offset_Status[row + 4] && (Offset[row + 4].Average() < 3.5) && (Offset[row + 4].Average() > -3.5)) ? Color.Green : Color.Red;
                 HTR_RESUTLS.Rows[row].Cells[2].Style.ForeColor = (Offset_Status[row + 4] && (Offset[row + 4].Average() < 3.5) && (Offset[row + 4].Average() > -3.5)) ? Color.Green : Color.Red;
 

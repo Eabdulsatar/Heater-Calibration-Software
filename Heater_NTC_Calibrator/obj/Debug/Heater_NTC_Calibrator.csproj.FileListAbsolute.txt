@@ -7,3 +7,21 @@ c:\users\abdues\documents\visual studio 2013\Projects\Heater_NTC_Calibrator\Heat
 c:\users\abdues\documents\visual studio 2013\Projects\Heater_NTC_Calibrator\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.pdb
 c:\users\abdues\documents\visual studio 2013\Projects\Heater_NTC_Calibrator\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.Heater_Calibrator.resources
 C:\Users\Abdues\Documents\Visual Studio 2013\Projects\Heater_NTC_Calibrator\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.Settings_Form.resources
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\bin\Debug\Heater_NTC_Calibrator.exe.config
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\bin\Debug\Heater_NTC_Calibrator.exe
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\bin\Debug\Heater_NTC_Calibrator.pdb
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\bin\Debug\INIFileParser.dll
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\bin\Debug\PagedList.dll
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\bin\Debug\INIFileParser.xml
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\bin\Debug\PagedList.xml
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.csprojAssemblyReference.cache
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.Calibration.resources
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.CalibrationTime.resources
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.Heater_Calibrator.resources
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.Properties.Resources.resources
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.Settings_Form.resources
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.csproj.GenerateResource.cache
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.csproj.CoreCompileInputs.cache
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.csproj.CopyComplete
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.exe
+\\epocal-bfs-01\People$\Hamsa Ahmed\Clean-build\Heater-Calibration-Software\Heater_NTC_Calibrator\obj\Debug\Heater_NTC_Calibrator.pdb
