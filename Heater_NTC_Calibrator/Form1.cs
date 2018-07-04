@@ -30,11 +30,11 @@ namespace Heater_NTC_Calibrator
         public const int J101 = 1;
         public const int SAMPLES = 16; //must be grater than 2
         public const int TIMEOUT = 180;
-        public const int AVG_SAMPLES = 8;
+        public const int AVG_SAMPLES = 10;//8;
         public const int MINMUM_COUNTS = 10;
         public const Double THRESH_HOLD_TopVsBottom = 0.3;
         public const Double THRESH_HOLD_Enviroment = 1.5;
-        public const Double THRESH_HOLD_Stable= 0.15;
+        public const Double THRESH_HOLD_Stable = 0.13;//0.15;
         public const Double SAMPLER_THERSH_HOLD = 0.15;
         public const int Therm_expiryDate = 168;//in days 6Monthes=24 weeks
         public const int PCBA_expiryDate = 168;//6Monthes=24 weeks
@@ -360,6 +360,7 @@ namespace Heater_NTC_Calibrator
                 double sum_calculator;
 
                 double[] Sampler = new double[AVG_SAMPLES];
+                
                 for ( kk = 0; kk < 16; kk++)
                 {
                    kflipr= four_bit_fliprl(kk);
@@ -367,7 +368,7 @@ namespace Heater_NTC_Calibrator
                    {
 
                         command = "SPA" + Convert.ToString(kflipr, 2).PadLeft(4, '0'); ;
-                        MessageBox.Show(command);
+                      //  MessageBox.Show(command);
 
                         tools.send_commnad(command, 0);
                        Thread.Sleep(40);
@@ -397,8 +398,8 @@ namespace Heater_NTC_Calibrator
                 //__________________________________________________________________________________________________
 
                 
-               
-                  for (int k = 0; k < 16; k++)
+
+                for (int k = 0; k < 16; k++)
                   {
                       
                       //_______________________________________offset calculations________________________________________
@@ -419,6 +420,7 @@ namespace Heater_NTC_Calibrator
                       File.AppendAllText(@"data\" + datetime + "_Data.txt", Data[k + 4][worker_counter % SAMPLES].ToString() + "\t");   
                          
                   }
+                
                   File.AppendAllText(@"data\" + datetime + "_Offset.txt", Environment.NewLine);
                   File.AppendAllText(@"data\" + datetime + "_Data.txt", Environment.NewLine);
 
@@ -478,6 +480,7 @@ namespace Heater_NTC_Calibrator
                       fireworks.Show();
                   }
                  worker_counter++;
+                
                     Second_Worker.ReportProgress(0);
             }
         }
