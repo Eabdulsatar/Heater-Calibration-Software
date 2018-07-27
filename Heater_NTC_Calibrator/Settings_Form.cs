@@ -20,24 +20,26 @@ namespace Heater_NTC_Calibrator
     {
 
 
-        private Heater_Calibrator parent;
+        private Calibration parent;
 
 
-        const string filename = @"Heater Lookup.ini";
+        private string filename ;
 
 
-        public Settings_Form(Heater_Calibrator parent)
+        public Settings_Form(Calibration parent, string file)
         {
-          
-            InitializeComponent();
+            filename = file;
             this.parent = parent;
-            
-           
+            InitializeComponent();
+            load_tables();
+
+
+
         }
 
         private void Settings_Form_Load(object sender, EventArgs e)
         {
-            load_tables();
+           
         }
 
         private void Settings_Form_FormClosing(object sender, FormClosingEventArgs e)
@@ -97,39 +99,59 @@ namespace Heater_NTC_Calibrator
 
 
         private void load_string_into_datagridview(DataGridView d,string o){
-            string[] pastedRows = Regex.Split(o.ToString().TrimEnd("\r\n".ToCharArray()), "\n");
+            o = o.Replace("\r", "");
+            string[] pastedRows = o.Split(new char[] { '\n' });
             int j = 0;
             try { j = d.CurrentRow.Index; }
             catch { }
+            string mesg="";
             foreach (string pastedRow in pastedRows)
             {
-                DataGridViewRow r = new DataGridViewRow();
-                r.CreateCells(d, pastedRow.Split(new char[] { '\t' }));
-                d.Rows.Insert(j, r);
-                d.Rows[j].Cells[0].Value = Convert.ToDouble(d.Rows[j].Cells[0].Value.ToString());
-                d.Rows[j].Cells[1].Value = Convert.ToDouble(d.Rows[j].Cells[1].Value.ToString());
-                j++;
+                
+                string[] temp =pastedRow.Split(new char[] { '\t' });
+                if (temp[0] != "")
+                {
+                    mesg = mesg + temp.Length.ToString() + "\n";
+                    DataGridViewRow ro = (DataGridViewRow)d.Rows[0].Clone();
+
+                    ro.Cells[0].Value = Convert.ToDouble(temp[0]); 
+                    ro.Cells[1].Value = Convert.ToDouble(temp[1].Replace(" ", ""));
+                    d.Rows.Add(ro);
+                    j++;
+                }
+                
+                
+                
             }
+            
         }
         
+        private string Text_AS_Hex(string i)
+        {
+            char[] chars = i.ToCharArray();
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (char c in chars)
+            {
+                stringBuilder.Append(((Int16)c).ToString("x"));
+            }
+            return( stringBuilder.ToString());
+        }
 
-         private void load_tables()
+         public void load_tables()
          {
              string text = Read_file();
              string ref1, ref2, ref3, ref4;
              string[] s = text.Split('-');
 
-             ref1 = s[0];
-             ref2 = s[1].Remove(0,1);
-             ref3 = s[2].Remove(0, 1);
-             ref4 = s[3].Remove(0, 1);
+            ref1 = s[0];
+            ref2 = s[1];
+            ref3 = s[2];
+            ref4 = s[3];
 
-             load_string_into_datagridview(Data_Grid_1, ref1);
-             load_string_into_datagridview(Data_Grid_2, ref2);
-             load_string_into_datagridview(Data_Grid_3, ref3);
-             load_string_into_datagridview(Data_Grid_4, ref4);
-
-
+            load_string_into_datagridview(Data_Grid_1, ref1);
+            load_string_into_datagridview(Data_Grid_2, ref2);
+            load_string_into_datagridview(Data_Grid_3, ref3);
+            load_string_into_datagridview(Data_Grid_4, ref4);
              sort(Data_Grid_1);
              sort(Data_Grid_2);
              sort(Data_Grid_3);
@@ -148,7 +170,8 @@ namespace Heater_NTC_Calibrator
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ontrak.ini doesn't exist!\n" + ex.ToString());
+                MessageBox.Show(filename+" doesn't exist!\n" + ex.ToString());
+                return "";
             }
 
             if (file_Text == "")

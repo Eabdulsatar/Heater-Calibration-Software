@@ -44,7 +44,7 @@
             this.J103_C = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LookUpTable = new System.Windows.Forms.Button();
             this.Ontrak_SN = new System.Windows.Forms.Label();
-            this.CalibrationTime = new System.Windows.Forms.Button();
+            this.CalibrationSchedule = new System.Windows.Forms.Button();
             this.Contra_Gif = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Output_Data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Contra_Gif)).BeginInit();
@@ -179,18 +179,18 @@
             this.Ontrak_SN.TabIndex = 91;
             this.Ontrak_SN.Text = "Ontrak SN:";
             // 
-            // CalibrationTime
+            // CalibrationSchedule
             // 
-            this.CalibrationTime.FlatAppearance.BorderSize = 0;
-            this.CalibrationTime.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
-            this.CalibrationTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CalibrationTime.Location = new System.Drawing.Point(898, 99);
-            this.CalibrationTime.Name = "CalibrationTime";
-            this.CalibrationTime.Size = new System.Drawing.Size(97, 34);
-            this.CalibrationTime.TabIndex = 98;
-            this.CalibrationTime.Text = "CalibrationTime";
-            this.CalibrationTime.UseVisualStyleBackColor = true;
-            this.CalibrationTime.Click += new System.EventHandler(this.CalibrationTime_Click);
+            this.CalibrationSchedule.FlatAppearance.BorderSize = 0;
+            this.CalibrationSchedule.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
+            this.CalibrationSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CalibrationSchedule.Location = new System.Drawing.Point(898, 99);
+            this.CalibrationSchedule.Name = "CalibrationSchedule";
+            this.CalibrationSchedule.Size = new System.Drawing.Size(97, 34);
+            this.CalibrationSchedule.TabIndex = 98;
+            this.CalibrationSchedule.Text = "Calibration Schedule";
+            this.CalibrationSchedule.UseVisualStyleBackColor = true;
+            this.CalibrationSchedule.Click += new System.EventHandler(this.CalibrationTime_Click);
             // 
             // Contra_Gif
             // 
@@ -208,7 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 494);
-            this.Controls.Add(this.CalibrationTime);
+            this.Controls.Add(this.CalibrationSchedule);
             this.Controls.Add(this.Ontrak_SN);
             this.Controls.Add(this.LookUpTable);
             this.Controls.Add(this.Contra_Gif);
@@ -249,6 +249,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn J103_C;
         private System.Windows.Forms.Button LookUpTable;
         private System.Windows.Forms.Label Ontrak_SN;
-        private System.Windows.Forms.Button CalibrationTime;
+        private System.Windows.Forms.Button CalibrationSchedule;
     }
 }

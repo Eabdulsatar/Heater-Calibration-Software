@@ -15,11 +15,11 @@ namespace Heater_NTC_Calibrator
 {
     public partial class CalibrationTime : Form
     {
-        Heater_Calibrator expiry = new Heater_Calibrator();
+        Calibration parent;
 
         private bool[] stat = new bool [6];
 
-        public CalibrationTime()
+        public CalibrationTime(Calibration parent)
         {
 
             stat[0] = true;
@@ -28,8 +28,9 @@ namespace Heater_NTC_Calibrator
             stat[3] = true;
             stat[4] = true;
             stat[5] = true;
-            
+            this.parent = parent;
             InitializeComponent();
+            Timer();
 
         }
         CultureInfo MyCultureInfo = new CultureInfo("en-US");

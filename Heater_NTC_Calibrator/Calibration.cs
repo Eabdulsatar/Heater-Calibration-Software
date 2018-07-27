@@ -16,19 +16,21 @@ namespace Heater_NTC_Calibrator
     {
 
         Tools tools;
-        public Heater_Calibrator parent;
-        Thermometer therm = new Thermometer();
+        private Heater_Calibrator parent;
+        private Thermometer therm = new Thermometer();
+        public Settings_Form SettingsForm;
+        public CalibrationTime CalibrationTime;
         string input = "";
         
-        public const int J101 = 1;
-        public const int SAMPLES = 20;
-        public const int TIMEOUT = 240;
-        public const int AVG_SAMPLES = 10;
-        public const int SAMPLE_DELAY = 50;//+500 = 2 seconds
+        private const int J101 = 1;
+        private const int SAMPLES = 20;
+        private const int TIMEOUT = 240;
+        private const int AVG_SAMPLES = 10;
+        private const int SAMPLE_DELAY = 50;//+500 = 2 seconds
         double[] R_J10x = new double[4];
         double[] R_J10x_q = new double[4];
         double temperature, temperature_q;
-
+        private string Heaterlookupfile;
 
         private void Calibration_Load(object sender, EventArgs e)
         {
@@ -48,8 +50,12 @@ namespace Heater_NTC_Calibrator
             Ontrak_SN.Text = "Ontrak SN: " + tools.Serial_number_device_B;
         }
 
-        public Calibration()
+        public Calibration(Heater_Calibrator p, string FileName)
         {
+            parent = p;
+            Heaterlookupfile = FileName;
+            SettingsForm = new Settings_Form(this, Heaterlookupfile);
+            CalibrationTime = new CalibrationTime(this);
             InitializeComponent();
             
         }
@@ -210,21 +216,7 @@ namespace Heater_NTC_Calibrator
 
         private void Calibration_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //if (CalWorker.IsBusy)CalWorker.CancelAsync();
-
-              /*
-            while(CalWorker.IsBusy)
-            {
-                MessageBox.Show(CalWorker.IsBusy.ToString());
-               // Thread.Sleep(500);
-            }
-                  */
-          /*  therm.Close_Port();
-            tools.Close_Devices();
-            Contra_Gif.Visible = false;
-            Close_Port.Enabled = false;
-            Start_Cal.Enabled = false;
-            Stop_Cal.Enabled = false;    */
+            
 
             if (e.CloseReason == CloseReason.UserClosing)
             {
@@ -237,12 +229,14 @@ namespace Heater_NTC_Calibrator
 
         private void CalibrationTime_Click(object sender, EventArgs e)
         {
-            CalibrationTime calibrationtime = new CalibrationTime();
-            calibrationtime.Show();
+            // CalibrationTime calibrationtime = new CalibrationTime();
+            CalibrationTime.Show();
         }
         private void LookUpTable_Click(object sender, EventArgs e)
         {
-            parent.SettingsForm.Show();
+
+            SettingsForm.Show();
+            
         }
 
       

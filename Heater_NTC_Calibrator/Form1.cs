@@ -48,8 +48,10 @@ namespace Heater_NTC_Calibrator
         bool complete = false;          // true if completed calibration
         bool ref_therm_ok = false;
         int worker_counter = 0;
-        Calibration Cal = new Calibration();
-        
+        string Heaterlookupfile = @"Heater Lookup.ini";
+        private Calibration Cal;
+        //private Settings_Form SettingsForm;
+
 
 
         SteinhartHart SH = new SteinhartHart(COEFF_CNT);
@@ -82,7 +84,7 @@ namespace Heater_NTC_Calibrator
 
 
         SoundPlayer Sound = new SoundPlayer(@"Sound.wav");
-        CalibrationTime CalibrationTime;
+      //  CalibrationTime CalibrationTime;/////////////////////////////////////////////////////////////
 
 
         string l = Environment.NewLine;
@@ -90,10 +92,11 @@ namespace Heater_NTC_Calibrator
 
 
 
-        public Settings_Form SettingsForm;
+        
 
         public Heater_Calibrator()
         {
+            Cal = new Calibration(this, Heaterlookupfile);
             try
             {
                 string AduHid = File.ReadAllText(@"AduHid.dll", Encoding.UTF8);
@@ -123,7 +126,7 @@ namespace Heater_NTC_Calibrator
             }
             try
             {
-                string HeaterLookup = File.ReadAllText(@"Heater Lookup.ini", Encoding.UTF8);
+                string HeaterLookup = File.ReadAllText(Heaterlookupfile, Encoding.UTF8);
             }
             catch (Exception ex)
             {
@@ -131,7 +134,7 @@ namespace Heater_NTC_Calibrator
                 Environment.Exit(0);
             }
             InitializeComponent();
-            Cal.parent = this;
+
         }
 
 
@@ -167,9 +170,9 @@ namespace Heater_NTC_Calibrator
                 MessageBox.Show("Error with Ontrak.ini\n","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
             }
-            CalibrationTime = new CalibrationTime();
+          //  CalibrationTime = new CalibrationTime();///////////////////////////////////////////////////////////////////////////////////////////////////
            
-            CalibrationTime.Timer();
+          //  CalibrationTime.Timer();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             Kenny.Hide();
             fireworks.Hide();
@@ -188,11 +191,7 @@ namespace Heater_NTC_Calibrator
                 Offset[i] = new double[SAMPLES];
             }
             
-            SettingsForm = new Settings_Form(this);
-
-
-            SettingsForm.Show();
-            SettingsForm.Hide();
+           
 
 
             for ( i = 0; i < 16; i++)
@@ -277,19 +276,15 @@ namespace Heater_NTC_Calibrator
         private void Heater_Calibrator_FormClosing(object sender, FormClosingEventArgs e)
         {
             tools.send_commnad("RK0", 0);
-            //Motor.Enabled = true;
             tools.Close_Devices();
-            SettingsForm.Close();
+
         }
 
 
 
       
 
-        private void Settings_Click(object sender, EventArgs e)
-        {
-            SettingsForm.Show();
-        }
+      
 
        
 
@@ -311,16 +306,12 @@ namespace Heater_NTC_Calibrator
         }
         
 
-        double test;
+
         
         private void Second_Worker_DoWork(object sender, DoWorkEventArgs e)
         {
 
-            double THERM;
-            double temp;
             string command;
-            int index=0;
-            double max_i=0;
 
             double[] temp_temps = new double[4];
 
@@ -342,7 +333,7 @@ namespace Heater_NTC_Calibrator
                     tools.send_commnad(command, 0);
                     Thread.Sleep(100);
                     DataR[k][worker_counter % SAMPLES] = convert_data_to_R(Convert.ToDouble(tools.read_command("RUC11", 0)), 1.25, 10000);
-                    Data[k][worker_counter % SAMPLES] = SettingsForm.convert_R_to_T(DataR[k][worker_counter % SAMPLES], (k + 1));
+                    Data[k][worker_counter % SAMPLES] = Cal.SettingsForm.convert_R_to_T(DataR[k][worker_counter % SAMPLES], (k + 1));
                     Status[k] = (Data[k].Average() <= (37 + THRESH_HOLD_Enviroment)) && (Data[k].Average() >= (37 - THRESH_HOLD_Enviroment));
                   //  MessageBox.Show(Data[k][worker_counter % SAMPLES].ToString());
                 }
@@ -606,7 +597,7 @@ namespace Heater_NTC_Calibrator
         private void Connect2_Click(object sender, EventArgs e)
         {
             var lines = File.ReadAllLines(@"CalibrationExpiryDates.ini");
-            for (int i = 0; i < 6; i++) EXP_Stat[i] = CalibrationTime.check_stat(i);
+            for (int i = 0; i < 6; i++) EXP_Stat[i] = Cal.CalibrationTime.check_stat(i);
 
              datetimeReport = DateTime.Now.ToString("dd-MMM-yyyy,hh:mm tt");
 
